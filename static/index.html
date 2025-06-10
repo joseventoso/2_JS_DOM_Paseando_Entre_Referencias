@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio JS DOM</title>
+</head>
+<body>
+
+    <!-- DIV con etiqueta P -->
+    <div id="meuDiv">
+        <p>Este é o parágrafo dentro do div.</p>
+    </div>
+
+    <!-- Lista UL -->
+    <ul id="miñaLista">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ul>
+
+    <!-- Parágrafo despois da lista -->
+    <p>Parágrafo despois da lista.</p>
+
+    <!-- Táboa -->
+    <table id="miñaTabela" border="1">
+        <tr>
+            <td>Celda 1</td>
+            <td>Celda 2</td>
+        </tr>
+        <tr>
+            <td>Celda 3</td>
+            <td>Celda 4</td>
+        </tr>
+    </table>
+
+    <!-- Div despois da táboa -->
+    <div>Este é o div despois da táboa.</div>
+
+    <script>
+        // Exercicio 1
+        const meuDiv = document.getElementById('meuDiv');
+        const paragrafoDentroDiv = meuDiv.querySelector('p');
+        console.log('Exercicio 1:', paragrafoDentroDiv.textContent);
+
+        // Exercicio 2
+        const miñaLista = document.getElementById('miñaLista');
+        const elementosLista = miñaLista.children;
+        console.log('Exercicio 2:');
+        for (let elemento of elementosLista) {
+            console.log(elemento.textContent);
+        }
+
+        // Exercicio 3
+        const paragrafoDespoisLista = miñaLista.nextElementSibling;
+        console.log('Exercicio 3:', paragrafoDespoisLista.textContent);
+
+        // Exercicio 4
+        const tabelaEx4 = paragrafoDespoisLista.nextElementSibling;
+        console.log('Exercicio 4 - Táboa:', tabelaEx4);
+
+        const celdasEx4 = tabelaEx4.querySelectorAll('td');
+        console.log('Exercicio 4 - Celdas:');
+        celdasEx4.forEach(celda => console.log(celda.textContent));
+
+        // Exercicio 5
+        const divDespoisTabela = tabelaEx4.nextElementSibling;
+        console.log('Exercicio 5:', divDespoisTabela.textContent);
+
+        // Exercicio 6
+        console.log('Exercicio 6 - Celdas desde a táboa:');
+        celdasEx4.forEach(celda => console.log(celda.textContent));
+
+        // Exercicio 7
+        const tabelaEx7 = meuDiv.nextElementSibling.nextElementSibling;
+        console.log('Exercicio 7:', tabelaEx7.textContent);
+
+    </script>
+
+</body>
+</html>
+
